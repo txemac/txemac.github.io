@@ -282,3 +282,10 @@ html:not([data-theme="dark"]) .skills .meter-fill{background:linear-gradient(90d
 html[data-theme="dark"] .skills .meter-segment{background:#14243c}
 @media(max-width:900px){.skills .skill-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.skills .skill-list{grid-template-columns:1fr}.skills .skill-row{min-height:170px;padding:14px}.skills .skill-techs{min-height:94px}.skills .skill-meter-row{min-height:140px}.skills .meter{height:126px}}
+
+
+/* Make expertise technology labels clearly visible while retaining three-line space. */
+.skills .skill-techs{min-height:102px;gap:6px}
+.skills .skill-techs span{padding:5px 8px;border-color:#476487;background:#263e60;color:#eff6ff;font-size:14px;font-weight:550;line-height:1.35}
+html[data-theme="dark"] .skills .skill-techs span{border-color:#476487;background:#263e60;color:#eff6ff}
+@media(max-width:600px){.skills .skill-techs{min-height:102px}.skills .skill-techs span{font-size:14px}}
