@@ -222,3 +222,33 @@ html[data-theme="dark"] .in-progress{color:#a9caff}
 html[data-theme="dark"] .homelab-grid>div{background:#192b45;border-color:#354b69}
 html[data-theme="dark"] .homelab-grid b{color:#dbe7f6}
 html[data-theme="dark"] .homelab-grid span{color:#b7c8df}
+
+
+/* Stable hero alignment across English and Spanish. */
+.hero{align-items:start}
+.hero-copy{align-self:start}
+.hero h1{height:2.16em}
+.hero-art{align-self:start;margin-top:32px}
+@media(max-width:900px){
+ .hero .intro{min-height:9em}
+ .hero-art{margin-top:24px}
+}
+@media(max-width:600px){
+ .hero .intro{min-height:14.4em}
+}
+
+/* More breathing room for the navigation and theme controls. */
+.topbar>nav:not(.lang-switch){gap:38px}
+.topbar .lang-switch{gap:1px}
+.topbar .lang-switch button{padding-left:1px;padding-right:1px}
+.header-controls{gap:23px}
+@media(max-width:900px){.topbar>nav:not(.lang-switch){gap:24px}}
+@media(max-width:600px){
+ .topbar>nav:not(.lang-switch){gap:14px}
+ .header-controls{gap:16px}
+}
+
+/* Each expertise level has a distinct shade and a thicker progress track. */
+.skills .meter{height:18px}
+.skills .meter-fill{height:100%;background:linear-gradient(90deg,#255fae 0 25%,#3d80cf 25% 50%,#70a7e8 50% 75%,#acd0fa 75% 100%)}
+html:not([data-theme="dark"]) .skills .meter-fill{background:linear-gradient(90deg,#acd0fa 0 25%,#70a7e8 25% 50%,#3d80cf 50% 75%,#255fae 75% 100%)}

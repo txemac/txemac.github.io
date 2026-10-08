@@ -50,25 +50,3 @@ themeToggle.addEventListener('click',()=>{themePreference=document.documentEleme
 document.querySelectorAll('.lang-switch button').forEach(b=>b.addEventListener('click',()=>setLanguage(b.dataset.lang)));
 syncTheme();
 const preferredLanguage=(navigator.languages&&navigator.languages[0])||navigator.language||'';const normalizedLanguage=preferredLanguage.trim().toLowerCase();const browserPrefersSpanish=normalizedLanguage==='es'||normalizedLanguage.startsWith('es-')||normalizedLanguage.startsWith('es_')||normalizedLanguage==='spanish'||normalizedLanguage.startsWith('spanish ')||normalizedLanguage==='español'||normalizedLanguage.startsWith('español ');let language=browserPrefersSpanish?'es':'en';try{const savedLanguage=localStorage.getItem('txb-lang-choice');if(savedLanguage==='es'||savedLanguage==='en')language=savedLanguage}catch(e){}setLanguage(language,false);
-const contactForm=document.querySelector('#contactForm');
-contactForm.addEventListener('submit',async event=>{
- event.preventDefault();
- const status=document.querySelector('#formStatus');
- const button=contactForm.querySelector('button[type="submit"]');
- const lang=document.documentElement.lang;
- const original=button.innerHTML;
- button.disabled=true;
- button.innerHTML=lang==='es'?'Enviando…':'Sending…';
- status.textContent=lang==='es'?'Enviando tu mensaje…':'Sending your message…';
- try{
-  const response=await fetch(contactForm.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(contactForm)});
-  let result={};
-  try{result=await response.json()}catch{}
-  const accepted=response.ok&&(result.success===true||result.success==='true');
-  if(!accepted)throw new Error(result.message||'Submission not confirmed');
-  status.textContent=lang==='es'?'El servicio ha aceptado tu mensaje. Si es el primer envío, confirma el correo de activación de FormSubmit.':'The service accepted your message. For the first submission, confirm FormSubmit’s activation email.';
-  contactForm.reset();
- }catch(error){
-  status.textContent=lang==='es'?'No se ha podido confirmar el envío. Comprueba tu conexión y que el formulario esté activado.':'The message could not be confirmed. Check your connection and whether the form has been activated.';
- }finally{button.disabled=false;button.innerHTML=original;}
-});
