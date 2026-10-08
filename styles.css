@@ -262,3 +262,23 @@ html:not([data-theme="dark"]) .skills .meter-fill{background:linear-gradient(90d
 .skills .meter-segment.is-filled:nth-child(2){background:#70a7e8}
 .skills .meter-segment.is-filled:nth-child(3){background:#3d80cf}
 .skills .meter-segment.is-filled:nth-child(4){background:#255fae}
+
+
+/* Vertical proficiency bars with a two-thirds text area and room for three chip lines. */
+.skills .skill-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:none;border:0}
+.skills .skill-row{display:grid;grid-template-columns:2fr 1fr;align-items:start;gap:12px;min-width:0;min-height:170px;padding:14px;background:#172747;border:1px solid #ffffff24;border-radius:10px}
+.skills .skill-info{display:flex;min-width:0;flex-direction:column;align-items:flex-start;gap:11px}
+.skills .skill-info h3{min-height:0;margin:0;color:#f5f8ff;font:650 17px/1.32 var(--display);letter-spacing:-.2px}
+.skills .skill-techs{display:flex;min-height:94px;flex-wrap:wrap;align-content:flex-start;align-items:flex-start;gap:6px}
+.skills .skill-techs span{padding:4px 8px;border:1px solid #ffffff28;border-radius:15px;background:#ffffff0b;color:#d4e3f7;font-size:13px;line-height:1.45;overflow-wrap:anywhere}
+.skills .skill-meter-row{display:grid;min-height:140px;place-items:start center;margin:0;padding-left:10px;border-left:1px solid #ffffff20}
+.skills .meter{display:flex;flex-direction:column-reverse;gap:4px;width:38px;height:126px;flex:none;padding:4px;overflow:hidden;border:0;border-radius:9px;background:#536a8c;box-shadow:none}
+.skills .meter:after{display:none}
+.skills .meter-segment{display:block;flex:1 1 0;width:100%;height:auto;min-height:0;border-radius:4px;background:#172747;transition:background .2s ease}
+.skills .meter-segment.is-filled.level-1{background:#b8dcff}
+.skills .meter-segment.is-filled.level-2{background:#83bdf4}
+.skills .meter-segment.is-filled.level-3{background:#5195dc}
+.skills .meter-segment.is-filled.level-4{background:#286cba}
+html[data-theme="dark"] .skills .meter-segment{background:#14243c}
+@media(max-width:900px){.skills .skill-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.skills .skill-list{grid-template-columns:1fr}.skills .skill-row{min-height:170px;padding:14px}.skills .skill-techs{min-height:94px}.skills .skill-meter-row{min-height:140px}.skills .meter{height:126px}}
