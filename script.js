@@ -23,7 +23,7 @@ const skillData=[
 ];;
 const jobs=document.querySelector('#jobs');
 const companyLogos={
- 'British Airways':'british-airways.webp',
+ 'British Airways':'british-airways.png',
  'Idoven':'idoven.png',
  'Kado Networks':'kado.jpg',
  'Xfera Consumer Finance':'xfera.png',
