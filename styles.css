@@ -304,3 +304,42 @@ html[data-theme="dark"] .skills .skill-techs span{border-color:#476487;backgroun
 @media(max-width:900px){.skills .skill-list{grid-template-columns:repeat(2,340px)}}
 @media(max-width:743px){.skills .skill-list{grid-template-columns:min(340px,100%)}}
 @media(max-width:600px){.skills .skill-list{grid-template-columns:min(340px,100%)}.skills .skill-row{width:100%;height:170px;min-height:170px;max-height:170px;padding:12px}.skills .skill-techs{min-height:0;max-height:104px}.skills .skill-meter-row{min-height:0;height:100%}}
+
+/* Experience rows: company mark, date, role, separate sector labels and disclosure. */
+.job summary{grid-template-columns:62px 160px minmax(210px,1fr) minmax(180px,.82fr) 26px;gap:16px;padding:20px 17px;min-height:104px}
+.job-logo{width:56px;height:50px;display:grid;place-items:center;overflow:hidden;border:1px solid #dce5ef;border-radius:9px;background:#fff}
+.job-logo img{display:block;width:100%;height:100%;padding:4px;object-fit:contain}
+.job-logo:empty{border-color:transparent;background:transparent}
+.job-sectors{display:flex;flex-wrap:wrap;align-items:center;justify-self:start;gap:5px 12px;min-width:0}
+.job-sectors span{position:relative;display:inline-flex;align-items:center;white-space:nowrap;color:#4f6682;font:12px/1.5 var(--mono);letter-spacing:.05px}
+.job-sectors span:before{content:"";width:5px;height:5px;flex:none;margin-right:6px;border-radius:50%;background:#4387d8}
+.job[open] .job-sectors span{color:#4f6682}
+.job-details{padding:17px 17px 29px;color:#536a88}
+.job-details ul{margin-bottom:18px}
+html[data-theme="dark"] .job-logo{border-color:#354b69;background:#fff}
+html[data-theme="dark"] .job-sectors span{color:#c1d1e7}
+html[data-theme="dark"] .job[open] .job-sectors span{color:#c1d1e7}
+.project-title-with-logo{display:flex;align-items:center;gap:11px}
+.project-title-with-logo img{flex:none;object-fit:contain;border-radius:7px}
+@media(max-width:900px){
+ .job summary{grid-template-columns:56px 155px minmax(0,1fr) 26px;gap:12px;padding:18px 15px}
+ .job-logo{grid-column:1;grid-row:1/3;width:50px;height:46px}
+ .job-period{grid-column:2;grid-row:1}
+ .job-head{grid-column:3;grid-row:1}
+ .job-sectors{grid-column:3;grid-row:2}
+ .job summary>.expand{grid-column:4;grid-row:1}
+ .job-details{padding:15px}
+}
+@media(max-width:600px){
+ .job summary{grid-template-columns:48px minmax(0,1fr) 26px;gap:8px 12px;padding:16px 11px;min-height:0}
+ .job-logo{grid-column:1;grid-row:1/4;width:44px;height:44px}
+ .job-period{grid-column:2;grid-row:1;font-size:11px}
+ .job-head{grid-column:2;grid-row:2}
+ .job-title{font-size:16px}
+ .job-company{font-size:14px}
+ .job-sectors{grid-column:2;grid-row:3;gap:3px 9px}
+ .job-sectors span{font-size:11px}
+ .job summary>.expand{grid-column:3;grid-row:1}
+ .job-details{padding:14px 12px 24px;font-size:15px}
+ .project-title-with-logo img{width:34px;height:34px}
+}
