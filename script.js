@@ -22,6 +22,16 @@ const skillData=[
  {name:{en:'AI Engineering',es:'Ingeniería de IA'},items:{en:'LLMs · RAG · Agents · Tool calling · Embeddings · Vector databases',es:'LLMs · RAG · Agentes · Tool calling · Embeddings · Bases de datos vectoriales'},level:1}
 ];;
 const jobs=document.querySelector('#jobs');
+const companyLogoLinks={
+ 'British Airways':'https://www.britishairways.com',
+ 'Idoven':'https://www.idoven.ai',
+ 'Kado Networks':'https://www.kadonetworks.com',
+ 'Savana Médica':'https://savanamed.com',
+ 'StyleSage':'https://www.stylesage.com/',
+ 'Jinn':'https://www.linkedin.com/company/ridee/about/',
+ 'Novastone Media':'https://messagematrix.io',
+ 'Instituto Nacional de Técnica Aeroespacial (INTA)':'https://www.inta.es/'
+};
 const companyLogos={
  'British Airways':'british-airways.png',
  'Idoven':'idoven.png',
@@ -34,7 +44,17 @@ const companyLogos={
  'Instituto Nacional de Técnica Aeroespacial (INTA)':'inta.png',
  'University of Huelva':'../asgere-icon.png'
 };
-function renderJobs(lang){jobs.innerHTML=roles.map((r)=>{const logo=companyLogos[r.company];const alt=r.company==='University of Huelva'?(lang==='es'?'Logotipo de AsGeRe, proyecto fin de carrera':'AsGeRe final degree project logo'):(lang==='es'?`Logotipo de ${r.company}`:`${r.company} logo`);const logoKey=logo==='../asgere-icon.png'?'asgere-icon':logo?logo.split('.')[0]:'';return `<details class="job"><summary><span class="job-logo${logoKey?` job-logo-${logoKey}`:'' }"${logo?'':' aria-hidden="true"'}>${logo?`<img src="assets/logos/${logo}" alt="${alt}" loading="lazy" decoding="async">`:''}</span><span class="job-head"><h3 class="job-title">${r.title[lang]}</h3><span class="job-company">${r.company} <i>· ${r.location[lang]}</i></span><span class="job-period">${r.period}</span></span><span class="job-sectors" role="list" aria-label="${lang==='es'?'Sectores':'Sectors'}">${r.sector[lang].split(' · ').map(s=>`<span role="listitem">${s}</span>`).join('')}</span><span class="expand" aria-hidden="true"></span></summary><div class="job-details"><p class="job-summary">${r.summary[lang]}</p><ul>${r.bullets[lang].map(b=>`<li>${b}</li>`).join('')}</ul><div class="stack-label">${lang==='en'?'TECHNOLOGIES & STACK':'TECNOLOGÍAS Y STACK'}</div><div class="tech-tags">${r.stack.flatMap(t=>t.split(' · ')).map(t=>`<span>${t}</span>`).join('')}</div></div></details>`}).join('')}
+function renderJobs(lang){
+ jobs.innerHTML=roles.map((r)=>{
+  const logo=companyLogos[r.company];
+  const alt=r.company==='University of Huelva'?(lang==='es'?'Logotipo de AsGeRe, proyecto fin de carrera':'AsGeRe final degree project logo'):(lang==='es'?`Logotipo de ${r.company}`:`${r.company} logo`);
+  const logoKey=logo==='../asgere-icon.png'?'asgere-icon':logo?logo.split('.')[0]:'';
+  const image=logo?`<img src="assets/logos/${logo}" alt="${alt}" loading="lazy" decoding="async">`:'';
+  const external=companyLogoLinks[r.company];
+  const logoElement=logo?(external?`<a class="job-logo job-logo-link job-logo-${logoKey}" href="${external}" target="_blank" rel="noopener noreferrer" aria-label="${lang==='es'?`Abrir el sitio de ${r.company} en una pestaña nueva`:`Open ${r.company} website in a new tab`}">${image}</a>`:`<span class="job-logo job-logo-${logoKey}">${image}</span>`):`<span class="job-logo" aria-hidden="true"></span>`;
+  return `<details class="job"><summary>${logoElement}<span class="job-head"><h3 class="job-title">${r.title[lang]}</h3><span class="job-company">${r.company} <i>· ${r.location[lang]}</i></span><span class="job-period">${r.period}</span></span><span class="job-sectors" role="list" aria-label="${lang==='es'?'Sectores':'Sectors'}">${r.sector[lang].split(' · ').map(s=>`<span role="listitem">${s}</span>`).join('')}</span><span class="expand" aria-hidden="true"></span></summary><div class="job-details"><p class="job-summary">${r.summary[lang]}</p><ul>${r.bullets[lang].map(b=>`<li>${b}</li>`).join('')}</ul><div class="stack-label">${lang==='en'?'TECHNOLOGIES & STACK':'TECNOLOGÍAS Y STACK'}</div><div class="tech-tags">${r.stack.flatMap(t=>t.split(' · ')).map(t=>`<span>${t}</span>`).join('')}</div></div></details>`;
+ }).join('');
+}
 function renderSkills(lang){
  const ratings={en:['Base','Competent','Advanced','Expert'],es:['Inicial','Competente','Avanzado','Experto']};
  document.querySelector('#skillList').innerHTML=skillData.map(s=>{

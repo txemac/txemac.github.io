@@ -407,3 +407,15 @@ html[data-theme="dark"] .job-sectors span,html[data-theme="dark"] .job[open] .jo
  .job-sectors span{font-size:11px;padding:4px 8px}
  .job summary>.expand{grid-column:3;grid-row:1}
 }
+
+/* Final logo fit and direct company links. */
+.job-logo-link{display:grid;text-decoration:none;cursor:pointer}
+.job-logo-link:hover img{transform:scale(1.04)}
+.job-logo-kado img{transform:none}
+.job-logo-kado.job-logo-link:hover img{transform:scale(1.03)}
+.job-logo-savana img{transform:none}
+.job-logo-savana.job-logo-link:hover img{transform:scale(1.04)}
+.job-logo-inta img,.job-logo-asgere-icon img{width:96px;height:96px;max-width:96px;max-height:96px;object-fit:contain;object-position:center}
+@media(max-width:600px){
+ .job-logo-inta img,.job-logo-asgere-icon img{width:58px;height:58px;max-width:58px;max-height:58px}
+}
