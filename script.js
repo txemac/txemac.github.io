@@ -13,11 +13,11 @@ const roles = [
 const skillData=[
  {name:{en:'Backend & APIs',es:'Backend y APIs'},items:{en:'Python · FastAPI · Flask · REST · OpenAPI · API integrations',es:'Python · FastAPI · Flask · REST · OpenAPI · Integraciones de API'},level:4},
  {name:{en:'Databases',es:'Bases de datos'},items:{en:'PostgreSQL · MongoDB · Redis · ClickHouse · SQLAlchemy · SQLModel',es:'PostgreSQL · MongoDB · Redis · ClickHouse · SQLAlchemy · SQLModel'},level:4},
- {name:{en:'Architecture & Distributed Systems',es:'Arquitectura y sistemas distribuidos'},items:{en:'Microservices · Async processing · Event-driven systems · Message queues · Distributed systems · System design',es:'Microservicios · Procesamiento asíncrono · Sistemas basados en eventos · Colas de mensajes · Sistemas distribuidos · Diseño de sistemas'},level:4},
+ {name:{en:'Architecture & Distributed Systems',es:'Arquitectura y sistemas distribuidos'},items:{en:'Microservices · Async · Events · Queues · Distributed systems',es:'Microservicios · Async · Eventos · Colas · Sistemas distribuidos'},level:4},
  {name:{en:'Data Engineering',es:'Ingeniería de datos'},items:{en:'Data pipelines · Data modeling · ETL · Dagster · Pandas · NumPy',es:'Pipelines de datos · Modelado de datos · ETL · Dagster · Pandas · NumPy'},level:4},
  {name:{en:'Cloud & Infrastructure',es:'Cloud e infraestructura'},items:{en:'AWS · GCP · Docker · CI/CD · GitHub Actions',es:'AWS · GCP · Docker · CI/CD · GitHub Actions'},level:3},
  {name:{en:'Security & Authentication',es:'Seguridad y autenticación'},items:{en:'Authentication · Authorization · OAuth2 · JWT',es:'Autenticación · Autorización · OAuth2 · JWT'},level:3},
- {name:{en:'Testing & Quality',es:'Pruebas y calidad'},items:{en:'Test automation · TDD · Unit testing · Integration testing · E2E testing',es:'Automatización de pruebas · TDD · Pruebas unitarias · Pruebas de integración · Pruebas E2E'},level:4},
+ {name:{en:'Testing & Quality',es:'Pruebas y calidad'},items:{en:'Test automation · TDD · Unit · Integration · E2E',es:'Automatización de pruebas · TDD · Unit · Integration · E2E'},level:4},
  {name:{en:'Clean Code & Practices',es:'Código limpio y buenas prácticas'},items:{en:'SOLID · Design Patterns · Code Reviews · Black',es:'SOLID · Patrones de diseño · Revisiones de código · Black'},level:4},
  {name:{en:'AI Engineering',es:'Ingeniería de IA'},items:{en:'LLMs · RAG · Agents · Tool calling · Embeddings · Vector databases',es:'LLMs · RAG · Agentes · Tool calling · Embeddings · Bases de datos vectoriales'},level:1}
 ];;
