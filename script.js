@@ -45,6 +45,7 @@ const companyLogos={
  'University of Huelva':'../asgere-icon.png'
 };
 function renderJobs(lang){
+ if(!jobs)return;
  jobs.innerHTML=roles.map((r)=>{
   const logo=companyLogos[r.company];
   const alt=r.company==='University of Huelva'?(lang==='es'?'Logotipo de AsGeRe, proyecto fin de carrera':'AsGeRe final degree project logo'):(lang==='es'?`Logotipo de ${r.company}`:`${r.company} logo`);
@@ -56,15 +57,16 @@ function renderJobs(lang){
  }).join('');
 }
 function renderSkills(lang){
+ const skillList=document.querySelector('#skillList');if(!skillList)return;
  const ratings={en:['Base','Competent','Advanced','Expert'],es:['Inicial','Competente','Avanzado','Experto']};
- document.querySelector('#skillList').innerHTML=skillData.map(s=>{
+ skillList.innerHTML=skillData.map(s=>{
   const rating=ratings[lang][s.level-1];
   const label=`${s.level}/4 - ${rating}`;
   const name=s.name[lang].replaceAll('&','&amp;');
   return `<article class="skill-row"><div class="skill-info"><h3>${s.name[lang]}</h3><div class="skill-techs" role="list" aria-label="${lang==='es'?'Tecnologías':'Technologies'}">${s.items[lang].split(' · ').map(item=>`<span role="listitem">${item}</span>`).join('')}</div></div><div class="skill-meter-row"><div class="meter" role="progressbar" aria-label="${name}" aria-valuemin="0" aria-valuemax="4" aria-valuenow="${s.level}" aria-valuetext="${label}">${[1,2,3,4].map(level=>`<span class="meter-segment level-${level}${level<=s.level?' is-filled':''}" aria-hidden="true"></span>`).join('')}</div></div></article>`
  }).join('')
 }
-function setLanguage(lang,persist=true){document.documentElement.lang=lang;document.querySelectorAll('[data-en][data-es]').forEach(el=>{el.innerHTML=el.dataset[lang]});document.querySelectorAll('[data-en-aria-label][data-es-aria-label]').forEach(el=>el.setAttribute('aria-label',el.dataset[lang+'AriaLabel']));document.querySelectorAll('.lang-switch button').forEach(b=>{const active=b.dataset.lang===lang;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});document.title='Txema Bermúdez - Software Engineer';document.querySelector('.lang-switch').setAttribute('aria-label',lang==='es'?'Selector de idioma':'Language selector');document.querySelector('header nav[aria-label]').setAttribute('aria-label',lang==='es'?'Navegación principal':'Main navigation');applyTheme(document.documentElement.dataset.theme||'light');document.querySelectorAll('.social-linkedin').forEach(a=>{a.href=`https://www.linkedin.com/in/josemariabermudez/?locale=${lang==='es'?'es-ES':'en-US'}`;a.setAttribute('aria-label',lang==='es'?'Perfil de LinkedIn':'LinkedIn profile')});renderJobs(lang);renderSkills(lang);if(persist){try{localStorage.setItem('txb-lang-choice',lang)}catch(e){}}}
+function setLanguage(lang,persist=true){document.documentElement.lang=lang;document.querySelectorAll('[data-en][data-es]').forEach(el=>{el.innerHTML=el.dataset[lang]});document.querySelectorAll('[data-en-aria-label][data-es-aria-label]').forEach(el=>el.setAttribute('aria-label',el.dataset[lang+'AriaLabel']));document.querySelectorAll('.lang-switch button').forEach(b=>{const active=b.dataset.lang===lang;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});document.title=document.body.dataset.page==='cookies'?(lang==='es'?'Política de cookies · Txema Bermúdez':'Cookie policy · Txema Bermúdez'):'Txema Bermúdez - Software Engineer';document.querySelector('.lang-switch').setAttribute('aria-label',lang==='es'?'Selector de idioma':'Language selector');document.querySelector('header nav[aria-label]').setAttribute('aria-label',lang==='es'?'Navegación principal':'Main navigation');applyTheme(document.documentElement.dataset.theme||'light');document.querySelectorAll('.social-linkedin').forEach(a=>{a.href=`https://www.linkedin.com/in/josemariabermudez/?locale=${lang==='es'?'es-ES':'en-US'}`;a.setAttribute('aria-label',lang==='es'?'Perfil de LinkedIn':'LinkedIn profile')});renderJobs(lang);renderSkills(lang);if(persist){try{localStorage.setItem('txb-lang-choice',lang)}catch(e){}}}
 const themeToggle=document.querySelector('#themeToggle');
 const systemTheme=window.matchMedia('(prefers-color-scheme: dark)');
 let themePreference='system';
@@ -90,7 +92,7 @@ const analyticsConsent=document.querySelector('#analyticsConsent');
 const consentPreferences=document.querySelector('#consentPreferences');
 const consentPreferencesToggle=document.querySelector('#consentPreferencesToggle');
 function readConsent(){try{return JSON.parse(localStorage.getItem('txb-consent')||'null')}catch(e){return null}}
-function saveConsent(analytics,choice){try{localStorage.setItem('txb-consent',JSON.stringify({necessary:true,analytics:!!analytics,choice,updatedAt:new Date().toISOString()}))}catch(e){} consentDialog.close()}
+function saveConsent(analytics,choice){try{localStorage.setItem('txb-consent',JSON.stringify({necessary:true,analytics:!!analytics,choice,updatedAt:new Date().toISOString()}))}catch(e){} consentDialog.close();consentLauncher.hidden=true}
 function openConsent(showPreferences=false){
  const saved=readConsent();analyticsConsent.checked=!!(saved&&saved.analytics);
  consentPreferences.hidden=!showPreferences;
@@ -98,7 +100,10 @@ function openConsent(showPreferences=false){
  if(!consentDialog.open)consentDialog.showModal();
  (showPreferences?document.querySelector('#consentSave'):document.querySelector('#consentAccept')).focus();
 }
-consentLauncher.addEventListener('click',()=>openConsent(true));
+consentLauncher.hidden=!!readConsent();
+consentLauncher.addEventListener('click',()=>openConsent(false));
+const consentManageInline=document.querySelector('#consentManageInline');
+if(consentManageInline)consentManageInline.addEventListener('click',()=>openConsent(true));
 document.querySelector('#consentAccept').addEventListener('click',()=>saveConsent(true,'accepted'));
 document.querySelector('#consentReject').addEventListener('click',()=>saveConsent(false,'rejected'));
 document.querySelector('#consentClose').addEventListener('click',()=>consentDialog.close());
@@ -111,4 +116,4 @@ consentPreferencesToggle.addEventListener('click',()=>{
 document.querySelector('#consentSave').addEventListener('click',()=>saveConsent(analyticsConsent.checked,'custom'));
 document.querySelector('#consentPolicyLink').addEventListener('click',()=>consentDialog.close());
 consentDialog.addEventListener('click',event=>{if(event.target===consentDialog)consentDialog.close()});
-if(!readConsent())window.setTimeout(()=>openConsent(false),500);
+

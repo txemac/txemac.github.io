@@ -472,3 +472,9 @@ html[data-theme="dark"] .consent-launcher:hover{background:#d8e5f5}
  .consent-actions button{min-height:43px}
  .cookie-policy-list{padding-left:21px}
 }
+
+.consent-launcher[hidden]{display:none}
+.consent-manage-inline{margin-top:15px;padding:11px 17px;border:1px solid #cad7e8;border-radius:7px;background:#fff;color:#234d7f;font-weight:650;cursor:pointer}
+.consent-manage-inline:hover{background:#f2f6fc}
+html[data-theme="dark"] .consent-manage-inline{border-color:#3b5271;background:#182a43;color:#c5d9f4}
+html[data-theme="dark"] .consent-manage-inline:hover{background:#203752}
