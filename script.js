@@ -25,15 +25,15 @@ const jobs=document.querySelector('#jobs');
 const companyLogos={
  'British Airways':'british-airways.png',
  'Idoven':'idoven.png',
- 'Kado Networks':'kado.jpg',
+ 'Kado Networks':'kado.png',
  'Xfera Consumer Finance':'xfera.png',
- 'Savana Médica':'savana.webp',
+ 'Savana Médica':'savana.png',
  'StyleSage':'stylesage.png',
  'Jinn':'jinn.png',
  'Novastone Media':'novastone.png',
  'Instituto Nacional de Técnica Aeroespacial (INTA)':'inta.png'
 };
-function renderJobs(lang){jobs.innerHTML=roles.map((r)=>{const logo=companyLogos[r.company];const alt=lang==='es'?`Logotipo de ${r.company}`:`${r.company} logo`;return `<details class="job"><summary><span class="job-logo"${logo?'':' aria-hidden="true"'}>${logo?`<img src="assets/logos/${logo}" alt="${alt}" loading="lazy" decoding="async">`:''}</span><span class="job-period">${r.period}</span><span class="job-head"><h3 class="job-title">${r.title[lang]}</h3><span class="job-company">${r.company} <i>· ${r.location[lang]}</i></span></span><span class="job-sectors" role="list" aria-label="${lang==='es'?'Sectores':'Sectors'}">${r.sector[lang].split(' · ').map(s=>`<span role="listitem">${s}</span>`).join('')}</span><span class="expand" aria-hidden="true"></span></summary><div class="job-details"><p class="job-summary">${r.summary[lang]}</p><ul>${r.bullets[lang].map(b=>`<li>${b}</li>`).join('')}</ul><div class="stack-label">${lang==='en'?'TECHNOLOGIES & STACK':'TECNOLOGÍAS Y STACK'}</div><div class="tech-tags">${r.stack.flatMap(t=>t.split(' · ')).map(t=>`<span>${t}</span>`).join('')}</div></div></details>`}).join('')}
+function renderJobs(lang){jobs.innerHTML=roles.map((r)=>{const logo=companyLogos[r.company];const alt=lang==='es'?`Logotipo de ${r.company}`:`${r.company} logo`;return `<details class="job"><summary><span class="job-logo"${logo?'':' aria-hidden="true"'}>${logo?`<img src="assets/logos/${logo}" alt="${alt}" loading="lazy" decoding="async">`:''}</span><span class="job-head"><h3 class="job-title">${r.title[lang]}</h3><span class="job-company">${r.company} <i>· ${r.location[lang]}</i></span><span class="job-period">${r.period}</span></span><span class="job-sectors" role="list" aria-label="${lang==='es'?'Sectores':'Sectors'}">${r.sector[lang].split(' · ').map(s=>`<span role="listitem">${s}</span>`).join('')}</span><span class="expand" aria-hidden="true"></span></summary><div class="job-details"><p class="job-summary">${r.summary[lang]}</p><ul>${r.bullets[lang].map(b=>`<li>${b}</li>`).join('')}</ul><div class="stack-label">${lang==='en'?'TECHNOLOGIES & STACK':'TECNOLOGÍAS Y STACK'}</div><div class="tech-tags">${r.stack.flatMap(t=>t.split(' · ')).map(t=>`<span>${t}</span>`).join('')}</div></div></details>`}).join('')}
 function renderSkills(lang){
  const ratings={en:['Base','Competent','Advanced','Expert'],es:['Inicial','Competente','Avanzado','Experto']};
  document.querySelector('#skillList').innerHTML=skillData.map(s=>{
