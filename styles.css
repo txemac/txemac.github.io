@@ -478,3 +478,12 @@ html[data-theme="dark"] .consent-launcher:hover{background:#d8e5f5}
 .consent-manage-inline:hover{background:#f2f6fc}
 html[data-theme="dark"] .consent-manage-inline{border-color:#3b5271;background:#182a43;color:#c5d9f4}
 html[data-theme="dark"] .consent-manage-inline:hover{background:#203752}
+
+
+/* Keep all text in expanded experience details in the same typeface. */
+.job-details,
+.job-details p,
+.job-details ul,
+.job-details li,
+.job-details .stack-label,
+.job-details .tech-tags{font-family:var(--sans)}
