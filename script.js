@@ -88,14 +88,16 @@ const experienceContentOverrides={
     'Developed REST API features across customer, courier and back-office workflows, supporting ordering, partner operations and delivery management.',
     'Implemented geospatial delivery-zone features and distance controls using PostgreSQL, PostGIS and GeoAlchemy2.',
     'Contributed to early app internationalisation and localisation of customer and courier workflows as the service expanded into Spain.',
-    'Built and maintained payment and card-management functionality with Stripe, and supported email, SMS and push-notification integrations.',
+    'Built and maintained payment and card-management functionality with Stripe.',
+    'Designed a notification module that abstracted delivery from feature logic, allowing notifications to be sent by email, SMS, push, or a combination of channels. Reduced SMS messages per send from nine to two, saving the company more than £10,000 per month.',
     'Expanded automated test coverage and migrated the Admin module tests to Pytest, supporting more reliable changes as the backend team grew.'
    ],
    es:[
     'Desarrollé funcionalidades de la API REST para los flujos de clientes, repartidores y backoffice, dando soporte a los pedidos, las operaciones con comercios y la gestión de entregas.',
     'Implementé funcionalidades geoespaciales para zonas de reparto y controles de distancia mediante PostgreSQL, PostGIS y GeoAlchemy2.',
     'Contribuí a la internacionalización inicial de la aplicación y a la localización de los flujos de clientes y repartidores durante la expansión del servicio a España.',
-    'Desarrollé y mantuve funcionalidades de pago y gestión de tarjetas con Stripe, además de colaborar en integraciones de email, SMS y notificaciones push.',
+    'Desarrollé y mantuve funcionalidades de pago y gestión de tarjetas con Stripe.',
+    'Diseñé un módulo de notificaciones que abstraía el envío de la lógica de cada funcionalidad y permitía usar email, SMS, notificaciones push o una combinación de canales. Redujimos de nueve a dos los SMS por envío, con un ahorro para la empresa de más de 10.000 libras al mes.',
     'Amplié la cobertura de pruebas automatizadas y migré a Pytest las pruebas del módulo Admin, facilitando cambios más fiables durante el crecimiento del equipo backend.'
    ]
   },
