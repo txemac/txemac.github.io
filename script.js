@@ -16,6 +16,7 @@ const experienceContentOverrides={
    en:'<a href="https://www.moneygo.es/es" target="_blank" rel="noopener noreferrer">Xfera Consumer Finance</a> provided financing through Grupo MásMóvil sales channels, including Yoigo. I was the company’s first developer and built the backend middleware from scratch. It connected applications and documents captured on store tablets with credit-risk assessment, document-management and financing services. Risk assessment could return a decision in one to two minutes, bringing the customer’s wait for an answer down from up to 48 hours to around five minutes. Store staff could also scan documents directly on the tablet.',
    es:'<a href="https://www.moneygo.es/es" target="_blank" rel="noopener noreferrer">Xfera Consumer Finance</a> ofrecía financiación a través de los canales de venta del Grupo MásMóvil, como Yoigo. Fui el primer desarrollador de la empresa y construí desde cero el middleware backend. Este conectaba las solicitudes y los documentos capturados en las tablets de los establecimientos con los servicios de análisis de riesgo, gestión documental y financiación. El análisis de riesgo podía devolver una decisión en uno o dos minutos y redujo la espera del cliente, que podía alcanzar las 48 horas, a unos cinco minutos. El personal de tienda también podía escanear los documentos directamente desde la tablet.'
   },
+  contributionsLabel:{en:'KEY CONTRIBUTIONS',es:'CONTRIBUCIONES PRINCIPALES'},
   bullets:{
    en:[
     'Built the backend REST API from the ground up with FastAPI, defining data models for customers, orders, contracts and risk-assessment results.',
@@ -39,11 +40,101 @@ const experienceContentOverrides={
    ]
   },
   stack:['Python','FastAPI','REST APIs','Pydantic','SQLAlchemy','PostgreSQL','Alembic','OpenAPI','Swagger','OAuth2','JWT','Cetelem','Qvantel','Talento','CUCO','Yoigo','SFTP','Google Cloud Storage','Secret Manager','Cloud Logging','Compute Engine','Container Registry','Docker','Docker Compose','GitHub','GitHub Actions','Pytest','Automated testing','CI/CD','Flake8','Jira','Scrum']
+ },
+ 'Savana Médica':{
+  summary:{
+   en:'<a href="https://savanamed.com/about-us/" target="_blank" rel="noopener noreferrer">Savana Médica</a> was founded in Silicon Valley in 2014 and moved to Madrid in 2015. It developed <a href="https://savanamed.com/savana-manager-suite/" target="_blank" rel="noopener noreferrer">clinical NLP</a> to turn free-text medical records into structured data for research and large-scale analysis. In 2016, its first clinical NLP application at scale focused on severe asthma in collaboration with <a href="https://www.gsk.com/" target="_blank" rel="noopener noreferrer">GSK</a>. The projects I worked on initially used reports from cancer studies.',
+   es:'<a href="https://savanamed.com/about-us/" target="_blank" rel="noopener noreferrer">Savana Médica</a> se fundó en Silicon Valley en 2014 y trasladó su actividad a Madrid en 2015. Desarrollaba <a href="https://savanamed.com/savana-manager-suite/" target="_blank" rel="noopener noreferrer">tecnología de PLN clínico</a> para transformar informes médicos en texto libre en datos estructurados para investigación y análisis a gran escala. En 2016, su primera aplicación de PLN clínico a gran escala se centró en el asma grave junto con <a href="https://www.gsk.com/" target="_blank" rel="noopener noreferrer">GSK</a>. Los proyectos en los que trabajé empezaron con informes de estudios sobre cáncer.'
+  },
+  summaryAdditional:{
+   en:'For hospital clients across Spain, software was installed on premises to collect and de-identify reports before sending them to Savana’s processing platform, with a dedicated database for each client. We normalised reports into an internal format to standardise information across hospitals. When an incoming report was a blood test, it followed a dedicated processing path and its individual parameters were assessed. The team manually annotated reports to evaluate processing quality. The systems handled Spanish and Catalan, while English and other languages were being added.',
+   es:'Para los hospitales clientes de España se instalaba software on-premise que recogía y anonimizaba los informes antes de enviarlos a la plataforma de procesamiento de Savana, con una base de datos dedicada a cada cliente. Normalizábamos los informes en un formato interno para estandarizar la información entre hospitales. Cuando llegaba una analítica de sangre, seguía un procesamiento específico y se evaluaba cada uno de sus parámetros. El equipo etiquetaba informes manualmente para evaluar la calidad del procesamiento. Los sistemas trabajaban en castellano y catalán, mientras se incorporaban el inglés y otros idiomas.'
+  },
+  contributionsLabel:{en:'KEY CONTRIBUTIONS',es:'CONTRIBUCIONES PRINCIPALES'},
+  bullets:{
+   en:[
+    'Built API endpoints for diagnostics, cardiovascular risk factors, signs and symptoms, treatments and medical terminology, using Cerberus for query validation, with filters, data transformation and automated tests.',
+    'Contributed to the new v3 backend structure using Domain-Driven Design, with separate domain, application and infrastructure layers and reusable actions, services and repositories.',
+    'Helped introduce ClickHouse as a column-oriented database for large-scale clinical data analysis, developing analytical queries alongside PostgreSQL persistence through SQLAlchemy and Alembic.',
+    'Improved MySQL queries for finding pending records and assigning processing steps, addressing bottlenecks in the data-processing workflow.',
+    'Added user profile, password and initial-settings API functionality, integrating user access with AWS Cognito.',
+    'Contributed to the Django evaluation tool used to assess processing against manually labelled reports, adding pharmacovigilance alerts, legal-term acceptance and scheduled study emails and status reports through AWS SES.',
+    'Added automated tests and Swagger/OpenAPI documentation, and configured linting and continuous integration in Bitbucket Pipelines.'
+   ],
+   es:[
+    'Desarrollé endpoints para consultar diagnósticos, factores de riesgo cardiovascular, signos y síntomas, tratamientos y terminología médica, utilizando Cerberus para validar las consultas, aplicar filtros, transformar los datos y ejecutar pruebas automatizadas.',
+    'Contribuí a la nueva estructura v3 del backend siguiendo diseño guiado por el dominio (DDD), con capas diferenciadas de dominio, aplicación e infraestructura y acciones, servicios y repositorios reutilizables.',
+    'Participé en la incorporación de ClickHouse como base de datos columnar para analizar grandes volúmenes de datos clínicos y desarrollé consultas analíticas junto con la persistencia en PostgreSQL mediante SQLAlchemy y Alembic.',
+    'Mejoré las consultas MySQL utilizadas para localizar registros pendientes y asignar etapas de procesamiento, abordando cuellos de botella en el flujo de procesamiento de datos.',
+    'Añadí funcionalidades de API para perfiles de usuario, contraseñas y configuración inicial, e integré la gestión de acceso con AWS Cognito.',
+    'Contribuí a la herramienta de evaluación en Django, utilizada para comparar el procesamiento con informes etiquetados manualmente. Añadí alertas de farmacovigilancia, aceptación de términos legales y correos programados para estudios e informes de estado mediante AWS SES.',
+    'Añadí pruebas automatizadas y documentación de API con Swagger/OpenAPI, y configuré el análisis de estilo y la integración continua en Bitbucket Pipelines.'
+   ]
+  },
+  stack:['Python','Flask','Django','REST APIs','Clinical NLP','EHR processing','On-premises','Data anonymisation','Multilingual processing','DDD','PostgreSQL','SQLAlchemy','Alembic','ClickHouse','MySQL','AWS Cognito','AWS SES','Boto3','Cerberus','Flasgger','Pytest','Swagger','OpenAPI','Bitbucket Pipelines','Flake8']
+ },
+ 'Jinn':{
+  summary:{
+   en:'<a href="https://www.linkedin.com/company/ridee/about/" target="_blank" rel="noopener noreferrer">Jinn</a> was an on-demand delivery platform that let customers order almost anything from nearby shops, not only restaurant food. Its service brought together customer and courier apps with a back-office platform, all coordinated by a central API.',
+   es:'<a href="https://www.linkedin.com/company/ridee/about/" target="_blank" rel="noopener noreferrer">Jinn</a> era una plataforma de reparto bajo demanda que permitía pedir casi cualquier cosa en comercios cercanos, no solo comida de restaurantes. El servicio conectaba las aplicaciones de clientes y repartidores con una plataforma de backoffice, todo coordinado por una API central.'
+  },
+  summaryAdditional:{
+   en:'I contributed to backend development as the product expanded from the UK into Spain, including early work to internationalise the app. During this period, the backend team grew from five to more than twenty people and the company from around twenty to about 120 employees. With teams working across the UK and Spain and a new Bilbao office, collaboration across locations became an important part of the work.',
+   es:'Contribuí al desarrollo backend durante la expansión del producto desde Reino Unido a España, incluido el trabajo inicial para internacionalizar la aplicación. En ese periodo, el equipo backend pasó de cinco a más de veinte personas y la empresa creció de unas veinte a cerca de 120. Con equipos repartidos entre Reino Unido y España y una nueva oficina en Bilbao, la colaboración entre sedes adquirió un papel importante.'
+  },
+  contributionsLabel:{en:'KEY CONTRIBUTIONS',es:'CONTRIBUCIONES PRINCIPALES'},
+  bullets:{
+   en:[
+    'Developed REST API features across customer, courier and back-office workflows, supporting ordering, partner operations and delivery management.',
+    'Implemented geospatial delivery-zone features and distance controls using PostgreSQL, PostGIS and GeoAlchemy2.',
+    'Contributed to early app internationalisation and localisation of customer and courier workflows as the service expanded into Spain.',
+    'Built and maintained payment and card-management functionality with Stripe, and supported email, SMS and push-notification integrations.',
+    'Expanded automated test coverage and migrated the Admin module tests to Pytest, supporting more reliable changes as the backend team grew.'
+   ],
+   es:[
+    'Desarrollé funcionalidades de la API REST para los flujos de clientes, repartidores y backoffice, dando soporte a los pedidos, las operaciones con comercios y la gestión de entregas.',
+    'Implementé funcionalidades geoespaciales para zonas de reparto y controles de distancia mediante PostgreSQL, PostGIS y GeoAlchemy2.',
+    'Contribuí a la internacionalización inicial de la aplicación y a la localización de los flujos de clientes y repartidores durante la expansión del servicio a España.',
+    'Desarrollé y mantuve funcionalidades de pago y gestión de tarjetas con Stripe, además de colaborar en integraciones de email, SMS y notificaciones push.',
+    'Amplié la cobertura de pruebas automatizadas y migré a Pytest las pruebas del módulo Admin, facilitando cambios más fiables durante el crecimiento del equipo backend.'
+   ]
+  },
+  stack:['Python','Flask','REST APIs','PostgreSQL','PostGIS','GeoAlchemy2','SQLAlchemy','Alembic','Celery','Redis','Stripe','SendGrid','Twilio','Algolia','Pytest','Automated testing','CI/CD','GitHub','Startup','Product']
+ },
+ 'StyleSage':{
+  summary:{
+   en:'<a href="https://www.stylesage.com/" target="_blank" rel="noopener noreferrer">StyleSage</a> developed a competitive analytics platform for fashion brands and retailers. It collected and enriched product data from retailers’ websites so customers could compare products and prices, view product histories and analyse brand assortments, such as the share of items offered in yellow. The platform also used AI to extract additional product attributes from associated images, beyond the information provided by the websites.',
+   es:'<a href="https://www.stylesage.com/" target="_blank" rel="noopener noreferrer">StyleSage</a> desarrollaba una plataforma de analítica competitiva para marcas y minoristas de moda. Recopilaba y enriquecía datos de producto de las webs de los comercios para que los clientes pudieran comparar productos y precios, consultar el historial de cada producto y analizar los surtidos de las marcas, por ejemplo, qué proporción de prendas ofrecían en color amarillo. La plataforma también utilizaba IA para extraer atributos adicionales de producto a partir de las imágenes asociadas, más allá de la información que proporcionaban las propias webs.'
+  },
+  summaryAdditional:{
+   en:'In the backend team, we built systems to collect daily crawler data, normalise it and store it in the central database.',
+   es:'En el equipo backend desarrollábamos los sistemas que recopilaban los datos diarios de los crawlers, los normalizaban y los almacenaban en la base de datos central.'
+  },
+  contributionsLabel:{en:'KEY CONTRIBUTIONS',es:'CONTRIBUCIONES PRINCIPALES'},
+  bullets:{
+   en:[
+    'Developed backend services to collect daily crawler data, normalise it and store it in the central database.',
+    'Turned a newsletter proof of concept into a near real-time processing system. Built an asynchronous pipeline using <a href="https://docs.celeryq.dev/en/stable/" target="_blank" rel="noopener noreferrer">Celery</a>, <a href="https://www.rabbitmq.com/" target="_blank" rel="noopener noreferrer">RabbitMQ</a> and the <a href="https://developers.google.com/gmail/api" target="_blank" rel="noopener noreferrer">Gmail API</a>, as well as a small <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">Node.js</a> service to generate screenshots. Processing grew from around one thousand emails a day to thousands in seconds, clearing the backlog and removing the need to prioritise countries or brands. The new capability became a commercial feature for customers, generated revenue and improved the product.',
+    'Developed APIs and supporting services for crawling, including proxy management, <a href="https://www.promptcloud.com/" target="_blank" rel="noopener noreferrer">PromptCloud</a> integration, translation through <a href="https://cloud.google.com/translate" target="_blank" rel="noopener noreferrer">Google Cloud Translation</a> and currency updates through <a href="https://openexchangerates.org/" target="_blank" rel="noopener noreferrer">OpenExchangeRates</a>.',
+    'Built Smart Tagging endpoints to retrieve, update and process product predictions in batches, with data validation, permissions, tests and API documentation.',
+    'Introduced an agile way of working in the backend team, setting up sprints, tickets and task breakdown. The team moved from assigning work as email requests arrived to planning it through tracked tasks.',
+    'Established a culture of automated testing and CI/CD in the backend team. Created the test suite and pipelines for our services, establishing a foundation that other teams later adopted.'
+   ],
+   es:[
+    'Desarrollé servicios backend para recopilar los datos diarios de los crawlers, normalizarlos y almacenarlos en la base de datos central.',
+    'Convertí una prueba de concepto de newsletters en un sistema de procesamiento casi en tiempo real. Desarrollé una canalización asíncrona con <a href="https://docs.celeryq.dev/en/stable/" target="_blank" rel="noopener noreferrer">Celery</a>, <a href="https://www.rabbitmq.com/" target="_blank" rel="noopener noreferrer">RabbitMQ</a> y la <a href="https://developers.google.com/gmail/api" target="_blank" rel="noopener noreferrer">Gmail API</a>, además de un sencillo servicio en <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">Node.js</a> para generar capturas. El sistema pasó de procesar unos mil correos al día a miles en segundos, liberó la cola acumulada y eliminó la necesidad de priorizar países o marcas. La nueva capacidad se incorporó como una funcionalidad comercial para los clientes, generó ingresos y mejoró el producto.',
+    'Desarrollé APIs y servicios de soporte para el crawling, incluidos la gestión de proxies, la integración con <a href="https://www.promptcloud.com/" target="_blank" rel="noopener noreferrer">PromptCloud</a>, la traducción con <a href="https://cloud.google.com/translate" target="_blank" rel="noopener noreferrer">Google Cloud Translation</a> y la actualización de divisas mediante <a href="https://openexchangerates.org/" target="_blank" rel="noopener noreferrer">OpenExchangeRates</a>.',
+    'Desarrollé endpoints de Smart Tagging para consultar, actualizar y procesar en lotes predicciones de productos, con validación de datos, gestión de permisos, pruebas y documentación de API.',
+    'Implanté una forma de trabajo ágil en el equipo backend, con sprints, tickets y división de tareas. Pasamos de asignarnos el trabajo según llegaban peticiones por email a organizarlo en tareas planificadas.',
+    'Implanté la cultura de las pruebas automatizadas y del CI/CD en el equipo backend. Creé la batería de pruebas y los pipelines para nuestros servicios, estableciendo una base que después adoptaron otros equipos.'
+   ]
+  },
+  stack:['Python','Flask','Django REST Framework','Node.js','REST APIs','Celery','RabbitMQ','PostgreSQL','InfluxDB','SQLAlchemy','Alembic','AWS S3','Boto3','Gmail API','Google Cloud Translation','PromptCloud','Scrapyd','OpenExchangeRates','Cerberus','Flasgger','Swagger/OpenAPI','Pytest','Automated testing','CI/CD','Jenkins','GitHub','Jira','Scrum','Kanban']
  }
 };
 roles.forEach((role)=>{
  const override=experienceContentOverrides[role.company];
- if(override){role.summary=override.summary;role.bullets=override.bullets;role.stack=override.stack}
+ if(override){role.summary=override.summary;if(override.summaryAdditional)role.summaryAdditional=override.summaryAdditional;if(override.contributionsLabel)role.contributionsLabel=override.contributionsLabel;role.bullets=override.bullets;role.stack=override.stack}
 });
 const roleTitleOverrides={
  'British Airways':{en:'Senior Software Engineer',es:'Ingeniero de Software Senior'},
@@ -135,6 +226,32 @@ const experienceTechLinks={
  'Mixpanel':'https://mixpanel.com/',
  'Docker':'https://www.docker.com/',
  'Sentry':'https://sentry.io/',
+ 'PostGIS':'https://postgis.net/',
+ 'GeoAlchemy2':'https://geoalchemy-2.readthedocs.io/en/latest/',
+ 'Redis':'https://redis.io/',
+ 'Twilio':'https://www.twilio.com/',
+ 'SendGrid':'https://sendgrid.com/',
+ 'Algolia':'https://www.algolia.com/',
+ 'Django':'https://www.djangoproject.com/',
+ 'Cerberus':'https://docs.python-cerberus.org/',
+ 'Boto3':'https://boto3.amazonaws.com/v1/documentation/api/latest/index.html',
+ 'Flasgger':'https://github.com/flasgger/flasgger',
+ 'clinical NLP':'https://savanamed.com/savana-manager-suite/',
+ 'ClickHouse':'https://clickhouse.com/',
+ 'Celery':'https://docs.celeryq.dev/en/stable/',
+ 'RabbitMQ':'https://www.rabbitmq.com/',
+ 'Gmail API':'https://developers.google.com/gmail/api',
+ 'Node.js':'https://nodejs.org/',
+ 'PromptCloud':'https://www.promptcloud.com/',
+ 'Google Cloud Translation':'https://cloud.google.com/translate',
+ 'OpenExchangeRates':'https://openexchangerates.org/',
+ 'InfluxDB':'https://www.influxdata.com/',
+ 'Jenkins':'https://www.jenkins.io/',
+ 'Scrapyd':'https://scrapyd.readthedocs.io/en/latest/',
+ 'Django REST Framework':'https://www.django-rest-framework.org/',
+ 'MySQL':'https://www.mysql.com/',
+ 'AWS Cognito':'https://aws.amazon.com/cognito/',
+ 'Bitbucket Pipelines':'https://bitbucket.org/product/features/pipelines',
  'FastAPI':'https://fastapi.tiangolo.com/',
  'SSIM':'https://www.iata.org/en/publications/manuals/standard-schedules-information/',
  'Dagster':'https://dagster.io/',
@@ -177,7 +294,7 @@ function normalizeExperienceCopy(text,company){
 function renderJobs(lang){
  if(!jobs)return;
  jobs.innerHTML=roles.map((r)=>{
-  const linkTech=r.company==='Kado Networks'||r.company==='British Airways'||r.company==='Idoven'||r.company==='Xfera Consumer Finance';
+  const linkTech=r.company==='Kado Networks'||r.company==='British Airways'||r.company==='Idoven'||r.company==='Xfera Consumer Finance'||r.company==='Savana Médica'||r.company==='StyleSage'||r.company==='Jinn';
   const logo=companyLogos[r.company];
   const alt=r.company==='University of Huelva'?(lang==='es'?'Logotipo de AsGeRe, proyecto fin de carrera':'AsGeRe final degree project logo'):(lang==='es'?`Logotipo de ${r.company}`:`${r.company} logo`);
   const logoKey=logo==='../asgere-icon.png'?'asgere-icon':logo?logo.split('.')[0]:'';
