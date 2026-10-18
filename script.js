@@ -103,6 +103,32 @@ const experienceContentOverrides={
   },
   stack:['Python','Flask','REST APIs','PostgreSQL','PostGIS','GeoAlchemy2','SQLAlchemy','Alembic','Celery','Redis','Stripe','SendGrid','Twilio','Algolia','Pytest','Automated testing','CI/CD','GitHub','Startup','Product']
  },
+ 'Novastone Media':{
+  summary:{
+   en:'<a href="https://www.novastonemedia.com/" target="_blank" rel="noopener noreferrer">Novastone Media</a> was a London-based software startup building a white-label messaging platform for organisations in finance and healthcare. It provided a secure channel for sensitive conversations, with encrypted messages, controlled access and registered devices.',
+   es:'<a href="https://www.novastonemedia.com/" target="_blank" rel="noopener noreferrer">Novastone Media</a> era una startup londinense de software que desarrollaba una plataforma de mensajería de marca blanca para organizaciones de los sectores financiero y sanitario. Ofrecía un canal seguro para conversaciones sensibles, con mensajes cifrados, acceso controlado y dispositivos registrados.'
+  },
+  summaryAdditional:{
+   en:'My first role in London was with an international team. I initially wrote tests for tickets being delivered by other developers, then gradually moved into backend development, building my experience with Python and the team’s engineering practices.',
+   es:'Fue mi primera experiencia profesional en Londres, dentro de un equipo internacional. Empecé creando pruebas para tickets que desarrollaban otros compañeros y, poco a poco, pasé a trabajar en backend, ganando experiencia con Python y con las formas de trabajo del equipo.'
+  },
+  contributionsLabel:{en:'KEY CONTRIBUTIONS',es:'CONTRIBUCIONES PRINCIPALES'},
+  bullets:{
+   en:[
+    'Built and expanded automated tests for the API, covering authentication, permissions, users, teams, chat, messages, provisioning and device workflows.',
+    'Progressed into backend feature development, contributing to internal and external API routes, provisioning validation, device handling and chat functionality.',
+    'Worked on message delivery and notification flows, including MQTT, while improving request validation, pagination and API responses.',
+    'Added tests for role-based permissions and data visibility across different user types.'
+   ],
+   es:[
+    'Creé y amplié pruebas automatizadas para la API, cubriendo autenticación, permisos, usuarios, equipos, chats, mensajes, provisioning y flujos relacionados con dispositivos.',
+    'Fui asumiendo tareas de desarrollo backend y contribuí a rutas internas y externas de la API, la validación del provisioning, la gestión de dispositivos y las funcionalidades de chat.',
+    'Trabajé en los flujos de envío y notificación de mensajes, incluido MQTT, y mejoré la validación de solicitudes, la paginación y las respuestas de la API.',
+    'Añadí pruebas de permisos por rol y de visibilidad de datos para distintos tipos de usuario.'
+   ]
+  },
+  stack:['Python','Flask','REST APIs','SQLAlchemy','Cassandra','Redis','RabbitMQ','MQTT','Elasticsearch','AWS SNS','Azure Notification Hubs','Flask-HTTPAuth','Flask-PassLib','Nose','Coverage','GitHub','Startup','Product']
+ },
  'StyleSage':{
   summary:{
    en:'<a href="https://www.stylesage.com/" target="_blank" rel="noopener noreferrer">StyleSage</a> developed a competitive analytics platform for fashion brands and retailers. It collected and enriched product data from retailers’ websites so customers could compare products and prices, view product histories and analyse brand assortments, such as the share of items offered in yellow. The platform also used AI to extract additional product attributes from associated images, beyond the information provided by the websites.',
@@ -167,7 +193,7 @@ const companyLogoLinks={
  'Savana Médica':'https://savanamed.com',
  'StyleSage':'https://www.stylesage.com/',
  'Jinn':'https://www.linkedin.com/company/ridee/about/',
- 'Novastone Media':'https://messagematrix.io',
+ 'Novastone Media':'https://www.novastonemedia.com/',
  'Instituto Nacional de Técnica Aeroespacial (INTA)':'https://www.inta.es/'
 };
 const companyLogos={
@@ -228,6 +254,12 @@ const experienceTechLinks={
  'Mixpanel':'https://mixpanel.com/',
  'Docker':'https://www.docker.com/',
  'Sentry':'https://sentry.io/',
+ 'Python':'https://www.python.org/',
+ 'Cassandra':'https://cassandra.apache.org/',
+ 'MQTT':'https://mqtt.org/',
+ 'Elasticsearch':'https://www.elastic.co/elasticsearch',
+ 'AWS SNS':'https://aws.amazon.com/sns/',
+ 'Azure Notification Hubs':{en:'https://learn.microsoft.com/en-us/azure/notification-hubs/',es:'https://learn.microsoft.com/es-es/azure/notification-hubs/'},
  'PostGIS':'https://postgis.net/',
  'GeoAlchemy2':'https://geoalchemy-2.readthedocs.io/en/latest/',
  'Redis':'https://redis.io/',
@@ -296,7 +328,7 @@ function normalizeExperienceCopy(text,company){
 function renderJobs(lang){
  if(!jobs)return;
  jobs.innerHTML=roles.map((r)=>{
-  const linkTech=r.company==='Kado Networks'||r.company==='British Airways'||r.company==='Idoven'||r.company==='Xfera Consumer Finance'||r.company==='Savana Médica'||r.company==='StyleSage'||r.company==='Jinn';
+  const linkTech=r.company==='Kado Networks'||r.company==='British Airways'||r.company==='Idoven'||r.company==='Xfera Consumer Finance'||r.company==='Savana Médica'||r.company==='StyleSage'||r.company==='Jinn'||r.company==='Novastone Media';
   const logo=companyLogos[r.company];
   const alt=r.company==='University of Huelva'?(lang==='es'?'Logotipo de AsGeRe, proyecto fin de carrera':'AsGeRe final degree project logo'):(lang==='es'?`Logotipo de ${r.company}`:`${r.company} logo`);
   const logoKey=logo==='../asgere-icon.png'?'asgere-icon':logo?logo.split('.')[0]:'';
