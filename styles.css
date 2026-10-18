@@ -487,3 +487,6 @@ html[data-theme="dark"] .consent-manage-inline:hover{background:#203752}
 .job-details li,
 .job-details .stack-label,
 .job-details .tech-tags{font-family:var(--sans)}
+
+.job-summary a{color:var(--link-blue);text-decoration:underline;text-decoration-color:#8baed8;text-underline-offset:3px}
+html[data-theme="dark"] .job-summary a{color:#a9caff;text-decoration-color:#7097ca}
