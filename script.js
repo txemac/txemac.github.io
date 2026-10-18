@@ -10,6 +10,41 @@ const roles = [
   {period:'MAR 2011 — FEB 2013',title:{en:'Internship Developer',es:'Desarrollador en prácticas'},company:'Instituto Nacional de Técnica Aeroespacial (INTA)',location:{en:'Huelva (Spain)',es:'Huelva (España)'},sector:{en:'AEROSPACE · GIS',es:'AEROESPACIAL · GIS'},summary:{en:'Developed applications in the radar department, taking part in the full software lifecycle from requirements and design to implementation, installation and testing.',es:'Desarrollé aplicaciones en el departamento de radares, participando en todo el ciclo de software: requisitos, diseño, implementación, implantación y pruebas.'},bullets:{en:['Programmed microcontrollers and real-time applications.','Worked with GIS applications, Ethernet communications, USB and RS-232 ports, and communications with UAVs and drones.'],es:['Programé microcontroladores y aplicaciones en tiempo real.','Trabajé con aplicaciones GIS, comunicaciones Ethernet, puertos USB y RS-232 y comunicaciones con VANT y drones.']},stack:['Java','MySQL · phpMyAdmin','Windows · Eclipse · NetBeans','GIS','Real-time systems','Ethernet · USB · RS-232']},
   {period:'JAN 2010 — JUL 2010',title:{en:'Final Degree Project · Biomedical NLP',es:'Proyecto fin de carrera · NLP biomédico'},company:'University of Huelva',location:{en:'Huelva (Spain)',es:'Huelva (España)'},sector:{en:'RESEARCH · NLP',es:'INVESTIGACIÓN · NLP'},summary:{en:'Built a desktop application to support extractive summarisation and create gold-standard datasets for evaluating automatic biomedical text summarisation.',es:'Desarrollé una aplicación de escritorio para apoyar la creación de resúmenes extractivos y generar conjuntos Gold Standard para evaluar la generación automática de resúmenes biomédicos.'},bullets:{en:['Preprocessed text, identified language and biomedical concepts, split text into sentences and visualised concept frequency.','The project supported corpus creation and evaluation of automatic summarisation.'],es:['Preprocesaba el texto, identificaba el idioma y conceptos biomédicos, dividía el texto en frases y mostraba la frecuencia de los conceptos.','El proyecto servía de apoyo para crear corpus y evaluar sistemas de resumen automático.']},stack:['Java · Hibernate','MySQL','OpenNLP · MetaMap','JDOM · PDFBox','Google API Language','Eclipse · Scrum · Mac OS X']}
 ];
+const experienceContentOverrides={
+ 'Xfera Consumer Finance':{
+  summary:{
+   en:'<a href="https://www.moneygo.es/es" target="_blank" rel="noopener noreferrer">Xfera Consumer Finance</a> provided financing through Grupo MásMóvil sales channels, including Yoigo. I was the company’s first developer and built the backend middleware from scratch. It connected applications and documents captured on store tablets with credit-risk assessment, document-management and financing services. Risk assessment could return a decision in one to two minutes, bringing the customer’s wait for an answer down from up to 48 hours to around five minutes. Store staff could also scan documents directly on the tablet.',
+   es:'<a href="https://www.moneygo.es/es" target="_blank" rel="noopener noreferrer">Xfera Consumer Finance</a> ofrecía financiación a través de los canales de venta del Grupo MásMóvil, como Yoigo. Fui el primer desarrollador de la empresa y construí desde cero el middleware backend. Este conectaba las solicitudes y los documentos capturados en las tablets de los establecimientos con los servicios de análisis de riesgo, gestión documental y financiación. El análisis de riesgo podía devolver una decisión en uno o dos minutos y redujo la espera del cliente, que podía alcanzar las 48 horas, a unos cinco minutos. El personal de tienda también podía escanear los documentos directamente desde la tablet.'
+  },
+  bullets:{
+   en:[
+    'Built the backend REST API from the ground up with FastAPI, defining data models for customers, orders, contracts and risk-assessment results.',
+    'Connected applications and documents captured on store tablets with credit-risk assessment, document-management and financing services, enabling documents to be scanned directly in store.',
+    'Integrated Cetelem for risk assessment, financing and document workflows, alongside Qvantel, Talento and CUCO for connected operational processes.',
+    'Automated Yoigo application and cancellation batch processing, including fixed-width file parsing and file exchange over SFTP. Added Google Cloud Storage for batch files.',
+    'Implemented PostgreSQL persistence with SQLAlchemy and Alembic migrations. Added automated tests with Pytest, CI/CD with GitHub Actions, and API documentation with OpenAPI and Swagger.',
+    'Contributed to reducing the customer’s financing decision wait from up to 48 hours to around five minutes, with risk assessment returning a result in one to two minutes.',
+    'Participated in interviews and the selection of two additional developers for the team.',
+    'Drove the production launch in October, ahead of the original November–December target.'
+   ],
+   es:[
+    'Desarrollé desde cero la API REST backend con FastAPI y definí los modelos de datos para clientes, pedidos, contratos y respuestas del análisis de riesgo.',
+    'Conecté las solicitudes y los documentos capturados en las tablets de los establecimientos con los servicios de análisis de riesgo, gestión documental y financiación, permitiendo escanear la documentación directamente en tienda.',
+    'Integré Cetelem para los flujos de análisis de riesgo, financiación y documentación, además de Qvantel, Talento y CUCO para conectar los procesos operativos.',
+    'Automaticé el procesamiento por lotes de altas y cancelaciones de Yoigo, incluido el parseo de ficheros de ancho fijo y el intercambio de archivos mediante SFTP. Añadí Google Cloud Storage para almacenar los ficheros.',
+    'Implementé la persistencia en PostgreSQL con SQLAlchemy y migraciones Alembic. Añadí pruebas automatizadas con Pytest, CI/CD con GitHub Actions y documentación de API con OpenAPI y Swagger.',
+    'Contribuí a reducir la espera del cliente para conocer la viabilidad de la financiación de hasta 48 horas a unos cinco minutos. El análisis de riesgo devolvía una respuesta en uno o dos minutos.',
+    'Participé en las entrevistas y en la selección de otros dos desarrolladores para el equipo.',
+    'Impulsé la puesta en producción en octubre, antes de la previsión inicial para noviembre o diciembre.'
+   ]
+  },
+  stack:['Python','FastAPI','REST APIs','Pydantic','SQLAlchemy','PostgreSQL','Alembic','OpenAPI','Swagger','OAuth2','JWT','Cetelem','Qvantel','Talento','CUCO','Yoigo','SFTP','Google Cloud Storage','Secret Manager','Cloud Logging','Compute Engine','Container Registry','Docker','Docker Compose','GitHub','GitHub Actions','Pytest','Automated testing','CI/CD','Flake8','Jira','Scrum']
+ }
+};
+roles.forEach((role)=>{
+ const override=experienceContentOverrides[role.company];
+ if(override){role.summary=override.summary;role.bullets=override.bullets;role.stack=override.stack}
+});
 const roleTitleOverrides={
  'British Airways':{en:'Senior Software Engineer',es:'Ingeniero de Software Senior'},
  'Kado Networks':{en:'Lead Backend Engineer',es:'Ingeniero Backend Lead'},
@@ -55,6 +90,31 @@ const companyLogos={
  'University of Huelva':'../asgere-icon.png'
 };
 const experienceTechLinks={
+ 'REST API':{
+  en:'https://en.wikipedia.org/wiki/Representational_state_transfer',
+  es:'https://es.wikipedia.org/wiki/Transferencia_de_estado_representacional'
+ },
+ 'Google Cloud Secret Manager':'https://cloud.google.com/security/products/secret-manager',
+ 'Google Cloud Logging':'https://cloud.google.com/logging',
+ 'Google Compute Engine':'https://cloud.google.com/compute',
+ 'Google Container Registry':'https://cloud.google.com/container-registry/docs',
+ 'Secret Manager':'https://cloud.google.com/security/products/secret-manager',
+ 'Cloud Logging':'https://cloud.google.com/logging',
+ 'Compute Engine':'https://cloud.google.com/compute',
+ 'Container Registry':'https://cloud.google.com/container-registry/docs',
+ 'SQLAlchemy':'https://www.sqlalchemy.org/',
+ 'Alembic':'https://alembic.sqlalchemy.org/',
+ 'Pydantic':'https://docs.pydantic.dev/',
+ 'Pytest':'https://docs.pytest.org/',
+ 'OAuth2':'https://oauth.net/2/',
+ 'JWT':'https://jwt.io/',
+ 'Cetelem':'https://www.cetelem.es/',
+ 'Qvantel':'https://www.qvantel.com/',
+ 'Yoigo':'https://www.yoigo.com/',
+ 'SFTP':{
+  en:'https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol',
+  es:'https://es.wikipedia.org/wiki/SSH_File_Transfer_Protocol'
+ },
  'Microsoft Azure':'https://azure.microsoft.com/',
  'Google Cloud Storage':'https://cloud.google.com/storage',
  'Google Cloud Platform (GCP)':'https://cloud.google.com/',
@@ -117,7 +177,7 @@ function normalizeExperienceCopy(text,company){
 function renderJobs(lang){
  if(!jobs)return;
  jobs.innerHTML=roles.map((r)=>{
-  const linkTech=r.company==='Kado Networks'||r.company==='British Airways'||r.company==='Idoven';
+  const linkTech=r.company==='Kado Networks'||r.company==='British Airways'||r.company==='Idoven'||r.company==='Xfera Consumer Finance';
   const logo=companyLogos[r.company];
   const alt=r.company==='University of Huelva'?(lang==='es'?'Logotipo de AsGeRe, proyecto fin de carrera':'AsGeRe final degree project logo'):(lang==='es'?`Logotipo de ${r.company}`:`${r.company} logo`);
   const logoKey=logo==='../asgere-icon.png'?'asgere-icon':logo?logo.split('.')[0]:'';
